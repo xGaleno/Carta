@@ -12,15 +12,70 @@
             justify-content: center;
             align-items: center;
             background-color: black;
+            font-family: Arial, sans-serif;
         }
 
         img {
-            width: 30%;  /* Ajusta el porcentaje según necesites */
+            width: 30%;  /* Ajusta el tamaño de la imagen */
             height: auto;
+            cursor: pointer;
         }
+
+        .message-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: black;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .close-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 50%;
+            font-size: 18px;
+        }
+
     </style>
 </head>
 <body>
-    <img src="Carta.webp" alt="Carta">
+    <img src="carta.webp" alt="Carta" id="carta">
+    <div class="message-box" id="messageBox">
+        <button class="close-btn" id="closeBtn">×</button>
+        <p>Querida Martina,</p>
+        <p>Desde que entraste en mi vida, todo ha cambiado de manera inesperada y maravillosa, como una reacción química que ocurre en el momento perfecto. Tu sonrisa actúa como un catalizador que acelera mi felicidad, y cada palabra que dices tiene el poder de transformar mi día. El solo escucharte estudiar me hace olvidar cualquier problema que podamos tener, y tu voz tiene un efecto profundamente tranquilizador sobre mí.</p>
+    </div>
+
+    <script>
+        // Obtener elementos
+        const carta = document.getElementById("carta");
+        const messageBox = document.getElementById("messageBox");
+        const closeBtn = document.getElementById("closeBtn");
+
+        // Mostrar mensaje al hacer clic en la carta
+        carta.addEventListener("click", function() {
+            messageBox.style.display = "block";
+        });
+
+        // Cerrar el mensaje
+        closeBtn.addEventListener("click", function() {
+            messageBox.style.display = "none";
+        });
+    </script>
 </body>
 </html>
